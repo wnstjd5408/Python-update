@@ -1,11 +1,11 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 
 
 html = requests.get(
     "https://movie.naver.com/movie/bi/mi/basic.nhn?code=196051")
 # print(html)
-movie_soup = BeautifulSoup(html.text, "html.parser")
+movie_soup = bs(html.text, "html.parser")
 # print(movie_soup)
 
 data1 = movie_soup.find("div", {"class": "sub_tab_area"})
